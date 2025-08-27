@@ -30,3 +30,4 @@ const habitSlice = createSlice({
 })
 
 export const {addHabit} = habitSlice.actions;
+export default habitSlice.reducer;
