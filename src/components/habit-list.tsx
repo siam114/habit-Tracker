@@ -2,6 +2,7 @@ import React from "react";
 import { useSelector } from "react-redux";
 import type { RootState } from "../store/store";
 import { Box, Button, Grid, Paper, Typography } from "@mui/material";
+import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 
 const HabitList: React.FC = () => {
   const { habits } = useSelector((state: RootState) => state.habits);
@@ -21,12 +22,13 @@ const HabitList: React.FC = () => {
                   color="text.secondary"
                   sx={{ textTransform: "capitalize" }}
                 >
-                  {habit.frequency}
+                   {habit.frequency.charAt(0).toUpperCase() +
+                  habit.frequency.slice(1)}
                 </Typography>
               </Grid>
               <Grid xs={12} sm={6}>
                 <Box
-                  sx={{ display: "flex", justifyContent: "flex-end", gap: 1 }}
+                   sx={{ display: "flex", justifyContent: "flex-end", gap: 1 }}
                 >
                   <Button
                     variant="outlined"
@@ -35,6 +37,7 @@ const HabitList: React.FC = () => {
                         ? "success"
                         : "primary"
                     }
+                    startIcon={<CheckCircleIcon/>}
                   >
                     Mark Complete
                   </Button>
